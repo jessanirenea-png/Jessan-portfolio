@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+    background: url("galaxy.jpg") no-repeat center center / cover;
+    padding: 50px 5%;
+}
+
+
+.container {
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    background: rgba(128, 0, 128, 0.25);
+    border-radius: 25px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+.navbar a {
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: pink;
+    border: 2px solid pink;
+    box-shadow: 0 0 10px pink;
+}
+
+
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70vh;
+    gap: 60px;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home h1 {
+    font-size: 45px;
+    color: #fff;
+}
+
+.home h2 {
+    font-size: 28px;
+    margin-top: 10px;
+    color: pink;
+}
+
+.home p {
+    margin-top: 15px;
+    color: #fff;
+    line-height: 1.7;
+}
+
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: purple;
+    color: #fff;
+}
+
+
+.social a i {
+    font-size: 26px;
+    margin-right: 12px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.social a i:hover {
+    color: pink;
+    transform: scale(1.2);
+}
+
+
+#role {
+    color: #ff4fd8;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #ff4fd8; }
+    to { text-shadow: 0 0 25px #ff4fd8; }
+}
+
+
+.img-box {
+    width: min(480px, 45vw);
+    height: min(480px, 45vw);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 79, 216, 0.6);
+    transition: 0.4s;
+}
+
+.img-box:hover {
+    transform: scale(1.05);
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.about {
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.about-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img .img-box {
+    width: min(450px, 80vw);
+    height: min(450px, 80vw);
+}
+
+
+.about-text {
+    flex: 1;
+    color: #fff;
+}
+
+.about-text h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+
+.achievements li {
+    list-style: "✨ ";
+    margin-bottom: 8px;
+}
+
+
+
+.projects {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 38px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: pink;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px pink;
+}
+
+.project-card h2 {
+    color: pink;
+}
+
+
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: purple;
+    padding: 25px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+    transform: scale(0.7);
+    transition: 0.3s;
+}
+
+.popup.active .popup-content {
+    transform: scale(1);
+}
+
+
+
+.services {
+    padding: 80px 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.services-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-card {
+    width: 260px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.service-card i {
+    font-size: 40px;
+    color: pink;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px pink;
+}
+
+
+
+.contact {
+    padding: 80px 40px;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: transparent;   
+    backdrop-filter: none;     
+}
+
+.contact h1 {
+    color: pink;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+
+.contact input:focus,
+.contact textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px pink;
+}
+
+.contact button {
+    background: pink;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background: purple;
+    color: #fff;
+}
+
+
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

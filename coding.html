@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio</title>
+
+<link rel="stylesheet" href="styles.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+#role {
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.about {
+    min-height: 80vh;
+    padding: 60px 40px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.8s ease;
+    color: white;
+}
+
+.about.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+<header>
+    <a href="#HOME" class="logo">PERSONAL INFO</a>
+
+    <nav class="navbar">
+        <a href="#HOME">Home</a>
+        <a href="#ABOUT">About</a>
+        <a href="#PROJECTS">Projects</a>
+        <a href="#SERVICES">Services</a>
+        <a href="#CONTACT">Contact</a>
+    </nav>
+</header>
+
+
+<section id="HOME" class="home">
+
+    <div class="home-content">
+        <h1>IT'S ME JESSAN M, IRENEA</h1>
+
+        <h2>I'm a <span id="role">Computer Technician</span></h2>
+
+        <p>
+            My goal is to grow into a professional who uses technology to help others and build meaningful projects.
+        </p>
+    </div>
+
+    <div class="home-img">
+        <div class="img-box">
+            <img src="Jessan home.jpg" alt="">
+        </div>
+    </div>
+
+</section>
+
+
+<section id="ABOUT" class="about">
+
+<div class="about-container">
+
+    <div class="about-img">
+        <div class="img-box">
+            <img src="jessan aics.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="about-text">
+
+        <h1>ABOUT ME</h1>
+
+        <p>
+        I am a BIT-CT student who is passionate about technology and programming.
+        I enjoy creating projects, solving problems, and improving my technical skills.
+        Outside of technology, I also love dancing and making creative crafts.
+        </p>
+
+        <h2 class="achievements-title">ACHIEVEMENTS</h2>
+
+        <ul class="achievements">
+            <li>With High Honors (Grade 12)</li>
+            <li>With Honors (Grade 8 & 10)</li>
+            <li>Top 1, Top 3, Top 4, Top 6, Top 8</li>
+            <li>Perfect Attendance</li>
+            <li>Best in English</li>
+            <li>Most Active / Creative / Respectful</li>
+            <li>Batang Maasahan</li>
+            <li>2nd Runner Up - Nutrition Month Poster</li>
+            <li>3rd Runner Up - Spoken Poetry</li>
+            <li>Best in Cooking (Girl Scout Activity)</li>
+            <li>Top 10 - AICS Got Talent</li>
+        </ul>
+
+    </div>
+
+</div>
+</section>
+
+
+<section id="PROJECTS" class="projects">
+  <h1 class="section-title">My <span>Projects</span></h1>
+
+  <div class="projects-container">
+
+    <div class="project-card" onclick="openProject('p1')">
+      <h2>Bouquet Shop App</h2>
+      <p>Click to view details</p>
+    </div>
+
+    <div class="project-card" onclick="openProject('p2')">
+      <h2>Student Grade System</h2>
+      <p>Click to view details</p>
+    </div>
+
+    <div class="project-card" onclick="openProject('p3')">
+      <h2>Login System Website</h2>
+      <p>Click to view details</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="SERVICES" class="services">
+  <h1 class="section-title">My <span>Services</span></h1>
+
+  <div class="services-container">
+
+    <div class="service-card">
+      <i class="ri-code-s-slash-line"></i>
+      <h2>Web Development</h2>
+      <p>I create responsive and modern websites using HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="ri-computer-line"></i>
+      <h2>Computer Repair</h2>
+      <p>I troubleshoot hardware and software issues to keep systems running smoothly.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="ri-database-2-line"></i>
+      <h2>System Development</h2>
+      <p>I build simple systems like login forms, grading systems, and database apps.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="CONTACT" class="contact">
+
+    <h1>Contact Me</h1>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+</section>
+
+
+<div id="project-popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeProject()">&times;</span>
+    <h2 id="popup-title"></h2>
+    <p id="popup-desc"></p>
+  </div>
+</div>
+
+</div>
+
+
+<script>
+const roles = [
+    "Computer Technician",
+    "Web Developer",
+    "BIT-CT Student",
+    "Programmer"
+];
+
+let index = 0;
+const roleElement = document.getElementById("role");
+
+function changeRole() {
+    roleElement.style.opacity = 0;
+    roleElement.style.transform = "translateY(-10px)";
+
+    setTimeout(() => {
+        index = (index + 1) % roles.length;
+        roleElement.textContent = roles[index];
+
+        roleElement.style.opacity = 1;
+        roleElement.style.transform = "translateY(0)";
+    }, 300);
+}
+
+setInterval(changeRole, 2000);
+</script>
+
+
+<script>
+function openProject(project) {
+    const popup = document.getElementById("project-popup");
+    const title = document.getElementById("popup-title");
+    const desc = document.getElementById("popup-desc");
+
+    if (project === "p1") {
+        title.innerText = "Bouquet Shop App";
+        desc.innerText = "A creative web app for satin and crochet bouquet designs.";
+    } 
+    else if (project === "p2") {
+        title.innerText = "Student Grade System";
+        desc.innerText = "A C program that calculates and displays student grades and averages.";
+    } 
+    else if (project === "p3") {
+        title.innerText = "Login System Website";
+        desc.innerText = "A simple login and registration system using HTML, CSS, and validation.";
+    }
+
+    popup.classList.add("active");
+}
+
+function closeProject() {
+    document.getElementById("project-popup").classList.remove("active");
+}
+
+window.onclick = function(event) {
+    const popup = document.getElementById("project-popup");
+    if (event.target === popup) {
+        popup.classList.remove("active");
+    }
+}
+</script>
+
+
+<script>
+window.addEventListener("scroll", () => {
+    const about = document.querySelector(".about");
+    const position = about.getBoundingClientRect().top;
+    const screen = window.innerHeight;
+
+    if (position < screen - 100) {
+        about.classList.add("show");
+    }
+});
+</script>
+
+</body>
+</html> 
+```
